@@ -3,6 +3,7 @@ This is a code which was created by Brendon Lutnick to demonstrate efficient inp
 
 ### USAGE ###
 To use run: python CNN.py
+
 The HYPERPARAMS can be adjusted at the top of the script. 
 
 - training: set Training = True
