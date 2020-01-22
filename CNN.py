@@ -16,6 +16,7 @@ num_epochs = 15
 learning_rate = 1e-3
 dropout_rate = .5 # percent of nodes to dropout [0,1]
 use_pixel_norm = True
+L2_multiplier = 1e-3
 
 saved_epoch = num_epochs-1 # epoch model to test
 training = True # --> True = training | False = holdout prediction
@@ -215,7 +216,7 @@ def main(): # define main training testing loop
 
     # L2 norm regularization = penalize for having large parameter values
     vars   = tf.trainable_variables()
-    lossL2 = tf.add_n([ tf.nn.l2_loss(v) for v in vars ]) * 0.001
+    lossL2 = tf.add_n([ tf.nn.l2_loss(v) for v in vars ]) * L2_multiplier
 
     cost = cross_entropy + lossL2
 
